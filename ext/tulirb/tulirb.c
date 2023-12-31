@@ -48,7 +48,13 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   xfree(c_inputs);
   xfree(options);
 
-  assert(error == TI_OKAY);
+  if (error == TI_INVALID_OPTION)
+  {
+    for (size_t i = 0; i < indicator->inputs; i++)
+      xfree(outputs[i]);
+    xfree(outputs);
+    rb_raise(rb_eArgError, "The combination of option values is invalid");
+  }
 
   VALUE ret = rb_ary_new_capa(indicator->outputs);
   for (int i = 0; i < indicator->outputs; i++)
@@ -607,10 +613,8 @@ static inline VALUE rb_indicators_info()
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("inputs")), INT2NUM(indicator.inputs));
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("outputs")), INT2NUM(indicator.outputs));
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("options")), opts_ary);
-    for (int i = 0; i < TI_MAXINDPARAMS; i++)
+    for (int i = 0; i < indicator.options; i++)
     {
-      if (!indicator.option_names[i])
-        break;
       rb_ary_push(opts_ary, parameterize(indicator.option_names[i]));
     };
     rb_hash_aset(ret, ID2SYM(rb_intern(indicator.name)), indicators_hash);
