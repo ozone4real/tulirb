@@ -1380,7 +1380,7 @@ struct ti_indicator_info ti_indicators[] = {
     {"sqrt", "Vector Square Root", ti_sqrt_start, ti_sqrt, TI_TYPE_SIMPLE, 1, 0, 1, {"real", 0}, {"", 0}, {"sqrt", 0}},
     {"stddev", "Standard Deviation Over Period", ti_stddev_start, ti_stddev, TI_TYPE_MATH, 1, 1, 1, {"real", 0}, {"period", 0}, {"stddev", 0}},
     {"stderr", "Standard Error Over Period", ti_stderr_start, ti_stderr, TI_TYPE_MATH, 1, 1, 1, {"real", 0}, {"period", 0}, {"stderr", 0}},
-    {"stoch", "Stochastic Oscillator", ti_stoch_start, ti_stoch, TI_TYPE_INDICATOR, 3, 3, 2, {"high", "low", "close", 0}, {"%k period", "%k slowing period", "%d period", 0}, {"stoch_k", "stoch_d", 0}},
+    {"stoch", "Stochastic Oscillator", ti_stoch_start, ti_stoch, TI_TYPE_INDICATOR, 3, 3, 2, {"high", "low", "close", 0}, {"k period", "k slowing period", "d period", 0}, {"stoch_k", "stoch_d", 0}},
     {"stochrsi", "Stochastic RSI", ti_stochrsi_start, ti_stochrsi, TI_TYPE_INDICATOR, 1, 1, 1, {"real", 0}, {"period", 0}, {"stochrsi", 0}},
     {"sub", "Vector Subtraction", ti_sub_start, ti_sub, TI_TYPE_SIMPLE, 2, 0, 1, {"real", "real", 0}, {"", 0}, {"sub", 0}},
     {"sum", "Sum Over Period", ti_sum_start, ti_sum, TI_TYPE_MATH, 1, 1, 1, {"real", 0}, {"period", 0}, {"sum", 0}},

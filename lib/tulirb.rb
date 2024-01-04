@@ -10,7 +10,7 @@ module Tulirb
 
   INDICATORS_INFO.each do |k, v|
     define_singleton_method(k) do |inputs, **options|
-      opts = v[:options].map {|o| options[o.to_sym] || raise(ArgumentError, "missing keyword: :#{o}") }
+      opts = v[:options].map { |o| options[o.to_sym] || raise(ArgumentError, "missing keyword: :#{o}") }
       super(inputs, opts)
     end
   end

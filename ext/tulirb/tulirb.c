@@ -1,5 +1,7 @@
 #include "tulirb.h"
 
+static void xfree_ptr_arr(TI_REAL **, size_t);
+
 static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
 {
   Check_Type(inputs, T_ARRAY);
@@ -9,6 +11,11 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   if (RARRAY_LEN(inputs) != indicator->inputs)
   {
     rb_raise(rb_eArgError, "Invalid inputs size, expected: %i inputs", indicator->inputs);
+  }
+
+  if (RARRAY_LEN(opts) != indicator->options)
+  {
+    rb_raise(rb_eArgError, "Invalid options size, expected: %i options", indicator->options);
   }
 
   TI_REAL *options = (TI_REAL *)xmalloc(sizeof(TI_REAL[RARRAY_LEN(opts)]));
@@ -24,9 +31,7 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   if (output_length < 0)
     return Qnil;
 
-  TI_REAL **outputs = xmalloc(indicator->outputs * sizeof(TI_REAL *));
   TI_REAL **c_inputs = xmalloc(indicator->inputs * sizeof(TI_REAL *));
-
   for (size_t i = 0; i < indicator->inputs; i++)
   {
     TI_REAL *c_entry = xmalloc(sizeof(TI_REAL[size]));
@@ -38,21 +43,18 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
     c_inputs[i] = c_entry;
   }
 
+  TI_REAL **outputs = xmalloc(indicator->outputs * sizeof(TI_REAL *));
   for (size_t i = 0; i < indicator->outputs; i++)
     outputs[i] = xmalloc(sizeof(TI_REAL[output_length]));
 
   int error = indicator->indicator(size, (const TI_REAL *const *)c_inputs, options, outputs);
 
-  for (size_t i = 0; i < indicator->inputs; i++)
-    xfree(c_inputs[i]);
-  xfree(c_inputs);
+  xfree_ptr_arr(c_inputs, indicator->inputs);
   xfree(options);
 
   if (error == TI_INVALID_OPTION)
   {
-    for (size_t i = 0; i < indicator->inputs; i++)
-      xfree(outputs[i]);
-    xfree(outputs);
+    xfree_ptr_arr(outputs, indicator->outputs);
     rb_raise(rb_eArgError, "The combination of option values is invalid");
   }
 
@@ -67,10 +69,15 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
     rb_ary_push(ret, output);
   }
 
-  for (size_t i = 0; i < indicator->inputs; i++)
-    xfree(outputs[i]);
-  xfree(outputs);
+  xfree_ptr_arr(outputs, indicator->outputs);
   return ret;
+}
+
+static void xfree_ptr_arr(TI_REAL **ptr, size_t size)
+{
+  for (int i = 0; i < size; i++)
+    xfree(ptr[i]);
+  xfree(ptr);
 }
 
 // Alphabetical order

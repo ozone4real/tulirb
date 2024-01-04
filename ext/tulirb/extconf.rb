@@ -2,5 +2,8 @@
 
 require "mkmf"
 
-$srcs = %w{tiamalgamation.c tulirb.c}
+# $LDFLAGS << " -fsanitize=address,undefined"
+# $CFLAGS << " -fsanitize=address,undefined"
+
+$srcs = %w[tiamalgamation.c tulirb.c]
 create_makefile("tulirb/tulirb")
