@@ -1,13 +1,21 @@
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.6
-
+  Exclude:
+    - ext/tulirb/extconf.rb
+    - Gemfile.lock
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
-
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  IgnoreMacros: false
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
+Style/Documentation:
+  Enabled: false
+  
 
 Layout/LineLength:
   Max: 120

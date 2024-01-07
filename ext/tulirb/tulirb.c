@@ -21,7 +21,7 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   TI_REAL *options = (TI_REAL *)xmalloc(sizeof(TI_REAL[RARRAY_LEN(opts)]));
 
   for (size_t i = 0; i < RARRAY_LEN(opts); i++)
-    options[i] = NUM2LONG(rb_ary_entry(opts, i));
+    options[i] = NUM2DBL(rb_ary_entry(opts, i));
 
   const int start = indicator->start(options);
 
@@ -615,14 +615,20 @@ static inline VALUE rb_indicators_info()
     VALUE indicators_hash = rb_hash_new();
     const ti_indicator_info indicator = ti_indicators[i];
     VALUE opts_ary = rb_ary_new();
+    VALUE input_names_ary = rb_ary_new();
 
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("full_name")), rb_str_new2(indicator.full_name));
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("inputs")), INT2NUM(indicator.inputs));
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("outputs")), INT2NUM(indicator.outputs));
     rb_hash_aset(indicators_hash, ID2SYM(rb_intern("options")), opts_ary);
+    rb_hash_aset(indicators_hash, ID2SYM(rb_intern("input_names")), input_names_ary);
     for (int i = 0; i < indicator.options; i++)
     {
       rb_ary_push(opts_ary, parameterize(indicator.option_names[i]));
+    };
+    for (int i = 0; i < indicator.inputs; i++)
+    {
+      rb_ary_push(input_names_ary, parameterize(indicator.input_names[i]));
     };
     rb_hash_aset(ret, ID2SYM(rb_intern(indicator.name)), indicators_hash);
   }

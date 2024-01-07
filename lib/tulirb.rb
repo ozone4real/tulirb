@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "tulirb/version"
-require_relative "tulirb/tulirb"
+require_relative("tulirb/version")
+require_relative("tulirb/tulirb")
 
 module Tulirb
   class Error < StandardError; end
