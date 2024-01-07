@@ -16,6 +16,10 @@ Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
   
 
 Layout/LineLength:
