@@ -1,5 +1,5 @@
 # Tulirb
-Ruby bindings for the Tulip indicators technical analysis indicator library (https://tulipindicators.org/). This can be used to build tools for financial trading and data analytics in Ruby.
+Ruby bindings for the Tulip indicators technical analysis indicator library (https://tulipindicators.org/). This can be used to build tools for financial markets trading and analytics in Ruby.
 
 ## Installation
 
@@ -18,6 +18,8 @@ This library consists of a single module: `Tulirb`. All indicator functions are 
 Example:
 
 ```ruby
+    require("tulirb")
+
     # Exponential Moving Average
     Tulirb.ema([[1.2, 1.5, 1, 1.8]], period: 5) # => [[1.2, 1.35, 1.175, 1.4875]]
 
@@ -35,7 +37,7 @@ Example:
 ```
 
 ## Documentation
-Find documentation for all indicator functions [here](https://www.rubydoc.info/github/ozone4real/tulirb/main/Tulirb).
+Find documentation for all indicator functions [here](https://www.rubydoc.info/github/ozone4real/tulirb/main/Tulirb). Information about the input and option parameters for each indicator method are also available in the `Tulirb::INDICATORS_INFO` hash.
 
 ## Development
 
