@@ -1,24 +1,38 @@
 # Tulirb
-
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tulirb`. To experiment with that code, run `bin/console` for an interactive prompt.
+Ruby bindings for the Tulip indicators technical analysis indicator library (https://tulipindicators.org/). This can be used to build tools for financial trading and data analytics in Ruby.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add tulirb
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install tulirb
 
 ## Usage
 
-TODO: Write usage instructions here
+This library consists of a single module: `Tulirb`. All indicator functions are singleton methods of this module. All methods have the same interface, they take a 2d array of inputs as the first argument and relevant options as kwargs. The output is a 2d array of the result(s).
+
+Example:
+
+```ruby
+    # Exponential Moving Average
+    Tulirb.ema([[1.2, 1.5, 1, 1.8]], period: 5) # => [[1.2, 1.35, 1.175, 1.4875]]
+
+    # Stochastic Oscillator
+    Tulirb.stoch(
+        [
+            [30, 35, 40, 25, 20, 23, 56, 24, 87],
+            [18, 22, 20, 24, 25, 63, 23, 100, 65],
+            [45, 60, 35, 50, 30, 43, 23, 109, 87],
+        ],
+        k_period: 3,
+        k_slowing_period: 3,
+        d_period: 3
+    ) # => [[650, 720.2020202020201, 120.20202020202017], [480.80808080808083, 690.0673400673401, 496.80134680134677]]
+```
 
 ## Development
 

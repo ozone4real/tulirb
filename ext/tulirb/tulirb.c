@@ -82,522 +82,522 @@ static void xfree_ptr_arr(TI_REAL **ptr, size_t size)
 
 // Alphabetical order
 
-VALUE rb_tulip_abs(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_abs(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "abs");
 }
 
-VALUE rb_tulip_acos(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_acos(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "acos");
 }
 
-VALUE rb_tulip_ad(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ad(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ad");
 }
 
-VALUE rb_tulip_add(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_add(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "add");
 }
 
-VALUE rb_tulip_adosc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_adosc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "adosc");
 }
 
-VALUE rb_tulip_adx(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_adx(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "adx");
 }
 
-VALUE rb_tulip_adxr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_adxr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "adxr");
 }
 
-VALUE rb_tulip_ao(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ao(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ao");
 }
 
-VALUE rb_tulip_apo(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_apo(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "apo");
 }
 
-VALUE rb_tulip_aroon(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_aroon(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "aroon");
 }
 
-VALUE rb_tulip_aroonosc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_aroonosc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "aroonosc");
 }
 
-VALUE rb_tulip_asin(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_asin(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "asin");
 }
 
-VALUE rb_tulip_atan(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_atan(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "atan");
 }
 
-VALUE rb_tulip_atr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_atr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "atr");
 }
 
-VALUE rb_tulip_avgprice(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_avgprice(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "avgprice");
 }
 
-VALUE rb_tulip_bbands(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_bbands(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "bbands");
 }
 
-VALUE rb_tulip_bop(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_bop(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "bop");
 }
 
-VALUE rb_tulip_cci(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_cci(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "cci");
 }
 
-VALUE rb_tulip_ceil(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ceil(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ceil");
 }
 
-VALUE rb_tulip_cmo(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_cmo(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "cmo");
 }
 
-VALUE rb_tulip_cos(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_cos(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "cos");
 }
 
-VALUE rb_tulip_cosh(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_cosh(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "cosh");
 }
 
-VALUE rb_tulip_crossany(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_crossany(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "crossany");
 }
 
-VALUE rb_tulip_crossover(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_crossover(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "crossover");
 }
 
-VALUE rb_tulip_cvi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_cvi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "cvi");
 }
 
-VALUE rb_tulip_decay(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_decay(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "decay");
 }
 
-VALUE rb_tulip_dema(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_dema(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "dema");
 }
 
-VALUE rb_tulip_di(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_di(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "di");
 }
 
-VALUE rb_tulip_div(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_div(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "div");
 }
 
-VALUE rb_tulip_dm(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_dm(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "dm");
 }
 
-VALUE rb_tulip_dpo(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_dpo(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "dpo");
 }
 
-VALUE rb_tulip_dx(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_dx(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "dx");
 }
 
-VALUE rb_tulip_edecay(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_edecay(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "edecay");
 }
 
-VALUE rb_tulip_ema(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ema(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ema");
 }
 
-VALUE rb_tulip_emv(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_emv(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "emv");
 }
 
-VALUE rb_tulip_exp(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_exp(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "exp");
 }
 
-VALUE rb_tulip_fisher(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_fisher(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "fisher");
 }
 
-VALUE rb_tulip_floor(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_floor(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "floor");
 }
 
-VALUE rb_tulip_fosc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_fosc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "fosc");
 }
 
-VALUE rb_tulip_hma(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_hma(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "hma");
 }
 
-VALUE rb_tulip_kama(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_kama(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "kama");
 }
 
-VALUE rb_tulip_kvo(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_kvo(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "kvo");
 }
 
-VALUE rb_tulip_lag(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_lag(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "lag");
 }
 
-VALUE rb_tulip_linreg(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_linreg(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "linreg");
 }
 
-VALUE rb_tulip_linregintercept(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_linregintercept(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "linregintercept");
 }
 
-VALUE rb_tulip_linregslope(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_linregslope(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "linregslope");
 }
 
-VALUE rb_tulip_ln(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ln(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ln");
 }
 
-VALUE rb_tulip_log10(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_log10(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "log10");
 }
 
-VALUE rb_tulip_macd(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_macd(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "macd");
 }
 
-VALUE rb_tulip_marketfi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_marketfi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "marketfi");
 }
 
-VALUE rb_tulip_mass(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_mass(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "mass");
 }
 
-VALUE rb_tulip_max(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_max(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "max");
 }
 
-VALUE rb_tulip_md(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_md(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "md");
 }
 
-VALUE rb_tulip_medprice(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_medprice(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "medprice");
 }
 
-VALUE rb_tulip_mfi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_mfi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "mfi");
 }
 
-VALUE rb_tulip_min(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_min(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "min");
 }
 
-VALUE rb_tulip_mom(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_mom(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "mom");
 }
 
-VALUE rb_tulip_msw(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_msw(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "msw");
 }
 
-VALUE rb_tulip_mul(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_mul(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "mul");
 }
 
-VALUE rb_tulip_natr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_natr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "natr");
 }
 
-VALUE rb_tulip_nvi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_nvi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "nvi");
 }
 
-VALUE rb_tulip_obv(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_obv(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "obv");
 }
 
-VALUE rb_tulip_ppo(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ppo(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ppo");
 }
 
-VALUE rb_tulip_psar(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_psar(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "psar");
 }
 
-VALUE rb_tulip_pvi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_pvi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "pvi");
 }
 
-VALUE rb_tulip_qstick(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_qstick(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "qstick");
 }
 
-VALUE rb_tulip_roc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_roc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "roc");
 }
 
-VALUE rb_tulip_rocr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_rocr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "rocr");
 }
 
-VALUE rb_tulip_round(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_round(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "round");
 }
 
-VALUE rb_tulip_rsi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_rsi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "rsi");
 }
 
-VALUE rb_tulip_sin(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sin(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sin");
 }
 
-VALUE rb_tulip_sinh(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sinh(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sinh");
 }
 
-VALUE rb_tulip_sma(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sma(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sma");
 }
 
-VALUE rb_tulip_sqrt(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sqrt(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sqrt");
 }
 
-VALUE rb_tulip_stddev(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_stddev(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "stddev");
 }
 
-VALUE rb_tulip_stderr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_stderr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "stderr");
 }
 
-VALUE rb_tulip_stoch(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_stoch(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "stoch");
 }
 
-VALUE rb_tulip_stochrsi(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_stochrsi(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "stochrsi");
 }
 
-VALUE rb_tulip_sub(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sub(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sub");
 }
 
-VALUE rb_tulip_sum(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_sum(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "sum");
 }
 
-VALUE rb_tulip_tan(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_tan(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "tan");
 }
 
-VALUE rb_tulip_tanh(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_tanh(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "tanh");
 }
 
-VALUE rb_tulip_tema(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_tema(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "tema");
 }
 
-VALUE rb_tulip_todeg(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_todeg(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "todeg");
 }
 
-VALUE rb_tulip_torad(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_torad(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "torad");
 }
 
-VALUE rb_tulip_tr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_tr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "tr");
 }
 
-VALUE rb_tulip_trima(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_trima(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "trima");
 }
 
-VALUE rb_tulip_trix(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_trix(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "trix");
 }
 
-VALUE rb_tulip_trunc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_trunc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "trunc");
 }
 
-VALUE rb_tulip_tsf(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_tsf(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "tsf");
 }
 
-VALUE rb_tulip_typprice(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_typprice(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "typprice");
 }
 
-VALUE rb_tulip_ultosc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_ultosc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "ultosc");
 }
 
-VALUE rb_tulip_var(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_var(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "var");
 }
 
-VALUE rb_tulip_vhf(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_vhf(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "vhf");
 }
 
-VALUE rb_tulip_vidya(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_vidya(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "vidya");
 }
 
-VALUE rb_tulip_volatility(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_volatility(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "volatility");
 }
 
-VALUE rb_tulip_vosc(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_vosc(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "vosc");
 }
 
-VALUE rb_tulip_vwma(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_vwma(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "vwma");
 }
 
-VALUE rb_tulip_wad(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_wad(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "wad");
 }
 
-VALUE rb_tulip_wcprice(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_wcprice(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "wcprice");
 }
 
-VALUE rb_tulip_wilders(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_wilders(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "wilders");
 }
 
-VALUE rb_tulip_willr(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_willr(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "willr");
 }
 
-VALUE rb_tulip_wma(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_wma(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "wma");
 }
 
-VALUE rb_tulip_zlema(VALUE self, VALUE inputs, VALUE opts)
+static VALUE rb_tulip_zlema(VALUE self, VALUE inputs, VALUE opts)
 {
   return ti_wrapper(inputs, opts, "zlema");
 }

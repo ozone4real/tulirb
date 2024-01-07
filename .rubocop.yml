@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - ext/tulirb/extconf.rb
     - Gemfile.lock
+    - 'vendor/bundle/**/*'
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
