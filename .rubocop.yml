@@ -20,6 +20,8 @@ Metrics/ModuleLength:
   Enabled: false
 Metrics/ClassLength:
   Enabled: false
+Metrics/MethodLength:
+  CountAsOne: ['array', 'heredoc', 'method_call']
   
 
 Layout/LineLength:

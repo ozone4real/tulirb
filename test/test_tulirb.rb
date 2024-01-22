@@ -8,10 +8,20 @@ class TestTulirb < Minitest::Test
   end
 
   SAMPLE_DATA.each do |indicator|
-    define_method("test_#{indicator[:name]}") do
+    indicator_name = indicator[:name].to_sym
+    define_method("test_#{indicator_name}") do
       expected = truncate(indicator[:outputs])
       actual = truncate(
-        Tulirb::Ext.public_send(indicator[:name], indicator[:inputs], indicator[:options])
+        Tulirb::Ext.public_send(indicator_name, indicator[:inputs], indicator[:options])
+      )
+      assert_equal(expected, actual)
+
+      options = Tulirb::INDICATORS_INFO[indicator_name][:options]
+                .map(&:to_sym)
+                .zip(indicator[:options])
+                .to_h
+      actual = truncate(
+        Tulirb.public_send(indicator_name, indicator[:inputs], **options)
       )
       assert_equal(expected, actual)
     end
