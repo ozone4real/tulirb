@@ -1,8 +1,16 @@
 #include "tulirb.h"
 
-static void xfree_ptr_arr(TI_REAL **, size_t);
+#ifdef TULIRB_SANITIZE
+#define TULIRB_MALLOC(size) malloc(size)
+#define TULIRB_FREE(ptr) free(ptr)
+#else
+#define TULIRB_MALLOC(size) xmalloc(size)
+#define TULIRB_FREE(ptr) xfree(ptr)
+#endif
 
-static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
+static inline void xfree_ptr_arr(TI_REAL **, size_t);
+
+static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, const char *indicator_name)
 {
   Check_Type(inputs, T_ARRAY);
   Check_Type(opts, T_ARRAY);
@@ -18,9 +26,9 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
     rb_raise(rb_eArgError, "Invalid options size, expected: %i options", indicator->options);
   }
 
-  TI_REAL *options = (TI_REAL *)xmalloc(sizeof(TI_REAL[RARRAY_LEN(opts)]));
+  TI_REAL *options = (TI_REAL *)TULIRB_MALLOC(sizeof(TI_REAL[RARRAY_LEN(opts)]));
 
-  for (size_t i = 0; i < RARRAY_LEN(opts); i++)
+  for (int i = 0; i < RARRAY_LEN(opts); i++)
     options[i] = NUM2DBL(rb_ary_entry(opts, i));
 
   const int start = indicator->start(options);
@@ -31,26 +39,26 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   if (output_length < 0)
     return Qnil;
 
-  TI_REAL **c_inputs = xmalloc(indicator->inputs * sizeof(TI_REAL *));
-  for (size_t i = 0; i < indicator->inputs; i++)
+  TI_REAL **c_inputs = TULIRB_MALLOC(indicator->inputs * sizeof(TI_REAL *));
+  for (int i = 0; i < indicator->inputs; i++)
   {
-    TI_REAL *c_entry = xmalloc(sizeof(TI_REAL[size]));
+    TI_REAL *c_entry = TULIRB_MALLOC(sizeof(TI_REAL[size]));
     VALUE entry = rb_ary_entry(inputs, i);
-    for (size_t j = 0; j < size; j++)
+    for (int j = 0; j < size; j++)
     {
       c_entry[j] = NUM2DBL(rb_ary_entry(entry, j));
     }
     c_inputs[i] = c_entry;
   }
 
-  TI_REAL **outputs = xmalloc(indicator->outputs * sizeof(TI_REAL *));
-  for (size_t i = 0; i < indicator->outputs; i++)
-    outputs[i] = xmalloc(sizeof(TI_REAL[output_length]));
+  TI_REAL **outputs = TULIRB_MALLOC(indicator->outputs * sizeof(TI_REAL *));
+  for (int i = 0; i < indicator->outputs; i++)
+    outputs[i] = TULIRB_MALLOC(sizeof(TI_REAL[output_length]));
 
   int error = indicator->indicator(size, (const TI_REAL *const *)c_inputs, options, outputs);
 
   xfree_ptr_arr(c_inputs, indicator->inputs);
-  xfree(options);
+  TULIRB_FREE(options);
 
   if (error == TI_INVALID_OPTION)
   {
@@ -62,7 +70,7 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   for (int i = 0; i < indicator->outputs; i++)
   {
     VALUE output = rb_ary_new_capa(output_length);
-    for (size_t j = 0; j < output_length; j++)
+    for (int j = 0; j < output_length; j++)
     {
       rb_ary_push(output, DBL2NUM(outputs[i][j]));
     }
@@ -73,11 +81,11 @@ static inline VALUE ti_wrapper(VALUE inputs, VALUE opts, char *indicator_name)
   return ret;
 }
 
-static void xfree_ptr_arr(TI_REAL **ptr, size_t size)
+static inline void xfree_ptr_arr(TI_REAL **ptr, size_t size)
 {
-  for (int i = 0; i < size; i++)
-    xfree(ptr[i]);
-  xfree(ptr);
+  for (size_t i = 0; i < size; i++)
+    TULIRB_FREE(ptr[i]);
+  TULIRB_FREE(ptr);
 }
 
 // Alphabetical order
@@ -607,7 +615,7 @@ static inline VALUE parameterize(char *str)
   return rb_funcall(rb_str_new2(str), rb_intern("gsub"), 2, rb_str_new2(" "), rb_str_new2("_"));
 }
 
-static inline VALUE rb_indicators_info()
+static inline VALUE rb_indicators_info(void)
 {
   VALUE ret = rb_hash_new();
   for (size_t i = 0; i < TI_INDICATOR_COUNT; i++)
@@ -632,7 +640,7 @@ static inline VALUE rb_indicators_info()
     };
     rb_hash_aset(ret, ID2SYM(rb_intern(indicator.name)), indicators_hash);
   }
-  return ret;
+  return rb_obj_freeze(ret);
 };
 
 void Init_tulirb(void)
