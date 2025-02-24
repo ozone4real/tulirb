@@ -1,42 +1,44 @@
 # frozen_string_literal: true
 
-def windows?
-  RbConfig::CONFIG["host_os"] =~ /mswin|mingw/
-end
+module DetectMemoryLeaks
+  def windows?
+    RbConfig::CONFIG["host_os"] =~ /mswin|mingw/
+  end
 
-def silence_stream(stream)
-  old_stream = stream.dup
-  stream.reopen(File::NULL)
-  stream.sync = true
-  yield
-ensure
-  stream.reopen(old_stream)
-end
+  def silence_stream(stream)
+    old_stream = stream.dup
+    stream.reopen(File::NULL)
+    stream.sync = true
+    yield
+  ensure
+    stream.reopen(old_stream)
+  end
 
-def reenable_task_with_prereqs(task_name)
-  task = Rake::Task[task_name]
-  return unless task.already_invoked # Skip if task hasn't run before
+  def reenable_task_with_prereqs(task_name)
+    task = Rake::Task[task_name]
+    return unless task.already_invoked # Skip if task hasn't run before
 
-  task.prerequisite_tasks.each { |prereq| reenable_task_with_prereqs(prereq) } # Recursively reset prerequisites
-  task.reenable # Reset the main task itself
-end
+    task.prerequisite_tasks.each { |prereq| reenable_task_with_prereqs(prereq) } # Recursively reset prerequisites
+    task.reenable # Reset the main task itself
+  end
 
-def detect_memory_leaks!
-  asan_path = `gcc -print-file-name=libasan.so`.strip
-  env = { "LD_PRELOAD" => asan_path }
-  Open3.capture3(env,
-                 "ruby -Ilib:ext -r tulirb -e \"puts Tulirb.ema([[2, 4, 6]], period: 5)\"").tap do |_, error, status|
-    puts("Running memory leak detection with AddressSanitizer")
-    unless status.success?
-      errors = error.split("\n\n").grep(%r{ext/tulirb})
-      if errors.any?
-        elog = "Memory leaks detected in C extension:\n\n"
-        elog += errors.join("\n\n")
-        raise(elog)
+  def detect_memory_leaks!
+    asan_path = `gcc -print-file-name=libasan.so`.strip
+    env = { "LD_PRELOAD" => asan_path }
+    Open3.capture3(env,
+                   "ruby -Ilib:ext -r tulirb -e \"puts Tulirb.ema([[2, 4, 6]], period: 5)\"").tap do |_, error, status|
+      puts("Running memory leak detection with AddressSanitizer")
+      unless status.success?
+        errors = error.split("\n\n").grep(%r{ext/tulirb})
+        if errors.any?
+          elog = "Memory leaks detected in C extension:\n\n"
+          elog += errors.join("\n\n")
+          raise(elog)
+        end
       end
-    end
 
-    puts("No memory leaks detected in C extension")
+      puts("No memory leaks detected in C extension")
+    end
   end
 end
 
@@ -59,6 +61,7 @@ Rake::ExtensionTask.new("tulirb") do |ext|
 end
 
 task(detect_memory_leaks: :clobber) do
+  include(DetectMemoryLeaks)
   next if windows?
 
   require("open3")
