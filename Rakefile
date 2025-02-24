@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+def windows?
+  RbConfig::CONFIG["host_os"] =~ /mswin|mingw/
+end
+
 def silence_stream(stream)
   old_stream = stream.dup
-  stream.reopen(RbConfig::CONFIG["host_os"] =~ /mswin|mingw/ ? "NUL:" : "/dev/null")
+  stream.reopen(File::NULL)
   stream.sync = true
   yield
 ensure
@@ -17,7 +21,7 @@ def reenable_task_with_prereqs(task_name)
   task.reenable # Reset the main task itself
 end
 
-def detect_memory_leaks! # rubocop:disable Metrics/MethodLength
+def detect_memory_leaks!
   asan_path = `gcc -print-file-name=libasan.so`.strip
   env = { "LD_PRELOAD" => asan_path }
   Open3.capture3(env,
@@ -55,6 +59,8 @@ Rake::ExtensionTask.new("tulirb") do |ext|
 end
 
 task(detect_memory_leaks: :clobber) do
+  next if windows?
+
   require("open3")
   ENV["SANITIZE"] = "true"
   silence_stream($stderr) { Rake::Task["compile"].invoke }

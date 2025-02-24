@@ -5,6 +5,8 @@ AllCops:
     - ext/tulirb/extconf.rb
     - Gemfile.lock
     - 'vendor/bundle/**/*'
+Style/FileNull:
+  Enabled: false
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
@@ -22,6 +24,7 @@ Metrics/ClassLength:
   Enabled: false
 Metrics/MethodLength:
   CountAsOne: ['array', 'heredoc', 'method_call']
+  Max: 30
   
 
 Layout/LineLength:
