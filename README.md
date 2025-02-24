@@ -1,5 +1,5 @@
 # Tulirb
-Ruby bindings for the Tulip indicators technical analysis indicator library (https://tulipindicators.org/). This can be used to build tools for financial markets trading and analytics in Ruby.
+Ruby bindings for the [Tulip indicators technical analysis indicator library](https://tulipindicators.org/). This can be used to build tools for trading and analytics in Ruby for financial markets.
 
 ## Installation
 
