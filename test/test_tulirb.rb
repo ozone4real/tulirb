@@ -27,6 +27,12 @@ class TestTulirb < Minitest::Test
     end
   end
 
+  def test_indicators_info_hash_immutable
+    assert_raises(FrozenError) do
+      Tulirb::INDICATORS_INFO[:ema] = { foo: "bar" }
+    end
+  end
+
   private
 
   def truncate(arr)
