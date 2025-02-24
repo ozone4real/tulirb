@@ -32,6 +32,6 @@ class TestTulirb < Minitest::Test
   def truncate(arr)
     return nil unless arr
 
-    arr.flatten.map { _1.truncate(6) }
+    arr.flatten.map { |element| element.truncate(6) }
   end
 end
