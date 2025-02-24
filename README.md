@@ -1,5 +1,5 @@
 # Tulirb
-Ruby bindings for the [Tulip indicators technical analysis indicator library](https://tulipindicators.org/). This can be used to build tools for trading and analytics in Ruby for financial markets.
+Ruby bindings for the [Tulip indicators technical analysis indicator library](https://tulipindicators.org/). This can be used to build tools for financial markets trading and technical analysis in Ruby.
 
 ## Installation
 
@@ -37,11 +37,11 @@ Example:
 ```
 
 ## Documentation
-Find documentation for all indicator functions [here](https://www.rubydoc.info/github/ozone4real/tulirb/main/Tulirb). Information about the input and option parameters for each indicator method are also available in the `Tulirb::INDICATORS_INFO` hash.
+Find documentation for all indicator functions [here](https://www.rubydoc.info/github/ozone4real/tulirb/main/Tulirb). Information about the input and option parameters for each indicator method is also available in the `Tulirb::INDICATORS_INFO` hash.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to compile the C extension, detect memory leaks in the C extension and run tests. [AddressSanitizer](https://github.com/google/sanitizers/wiki/addresssanitizer) is used to detect memory leaks in the C extension but it is only available on Linux. I'll recommend running the `rake` command with Docker to run in a Linux environment. There is a Dockerfile and docker-compose.yml file in the root directory to help with this. You can run `rake` with Docker by executing:
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to compile the C extension, detect memory leaks in the C extension, and run tests. [AddressSanitizer](https://github.com/google/sanitizers/wiki/addresssanitizer) is used to detect memory leaks in the C extension but it is only available on Linux. I'll recommend running the `rake` command with Docker to run in a Linux environment. There is a Dockerfile and docker-compose.yml file in the root directory to help with this. You can run `rake` with Docker by executing:
 
     $ docker compose run tulirb rake
 
@@ -59,4 +59,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Tulirb project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ozone4real/tulirb/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Tulirb project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [code of conduct](https://github.com/ozone4real/tulirb/blob/main/CODE_OF_CONDUCT.md).
