@@ -1,6 +1,9 @@
 # Tulirb
 Ruby bindings for the [Tulip indicators technical analysis indicator library](https://tulipindicators.org/). This can be used to build tools for financial markets trading and technical analysis in Ruby.
 
+## Requires
+Ruby >= 2.7
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
