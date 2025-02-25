@@ -41,7 +41,7 @@ Find documentation for all indicator functions [here](https://www.rubydoc.info/g
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to compile the C extension, detect memory leaks in the C extension, and run tests. [AddressSanitizer](https://github.com/google/sanitizers/wiki/addresssanitizer) is used to detect leaks and other memory issues in the C extension but it is not available on some operating systems and CPU architectures. I recommend running the `rake` command with Docker in a Linux environment. A Dockerfile and docker-compose.yml file are in the root directory to help with this. You can run `rake` with Docker by executing:
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to compile the C extension, detect memory leaks in the C extension, and run tests. [AddressSanitizer](https://github.com/google/sanitizers/wiki/addresssanitizer) is used to detect leaks and other memory issues in the C extension but it is not available on some operating systems and CPU architectures. I recommend running the `rake` command with Docker for a Linux environment. A Dockerfile and docker-compose.yml file are in the root directory to help with this. You can run `rake` with Docker by executing:
 
     $ docker compose run tulirb rake
 
